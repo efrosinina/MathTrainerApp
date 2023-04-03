@@ -310,8 +310,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="jkc-6g-Zbh"/>
                     <connections>
-                        <outletCollection property="resultButtonsCollection" destination="82D-nC-A84" collectionClass="NSMutableArray" id="DUk-hR-EMX"/>
-                        <outletCollection property="resultButtonsCollection" destination="yyA-Rr-N9X" collectionClass="NSMutableArray" id="ngz-ey-wNF"/>
+                        <outlet property="leftButtonResult" destination="82D-nC-A84" id="NaC-FN-Qeh"/>
+                        <outlet property="questionLabel" destination="pm5-eJ-oFQ" id="iXr-em-aJo"/>
+                        <outlet property="rightButtonResult" destination="yyA-Rr-N9X" id="nm8-FB-aHK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIx-zT-s27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

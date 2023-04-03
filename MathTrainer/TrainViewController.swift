@@ -9,7 +9,9 @@ import UIKit
 
 final class TrainViewController: UIViewController {
     //MARK: - IBOutlets
-    @IBOutlet var resultButtonsCollection: [UIButton]!
+    @IBOutlet weak var leftButtonResult: UIButton!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var rightButtonResult: UIButton!
     
     // MARK: - Properties
     var type: MathTypes = .add {
@@ -25,7 +27,7 @@ final class TrainViewController: UIViewController {
     
     //MARK: - Methods
     private func configure() {
-        resultButtonsCollection.forEach { button in
+        [leftButtonResult, rightButtonResult].forEach { button in
             button.layer.shadowColor = UIColor.darkGray.cgColor
             button.layer.shadowOffset = CGSize.init(width: 0, height: 2)
             button.layer.shadowOpacity = 0.4
