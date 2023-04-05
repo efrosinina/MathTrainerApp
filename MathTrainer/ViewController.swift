@@ -14,6 +14,10 @@ enum MathTypes: Int {
 class ViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var buttonsCollection: [UIButton]!
+    @IBOutlet weak var plusCountLabel: UILabel!
+    @IBOutlet weak var minusCountLabel: UILabel!
+    @IBOutlet weak var multiplyCountLabel: UILabel!
+    @IBOutlet weak var divideCountLabel: UILabel!
     
     //MARK: - Properties
     private var selectedType: MathTypes = .add
