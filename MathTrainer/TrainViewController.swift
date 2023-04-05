@@ -94,11 +94,22 @@ final class TrainViewController: UIViewController {
     }
     
     private func configureQuestion() {
-        firstNumber = Int.random(in: 1...99)
-        secondNumber = Int.random(in: 1...99)
         
-        let question: String = "\(firstNumber) \(sign) \(secondNumber) = "
-        questionLabel.text = question
+        if type == .divide {
+            repeat {
+                firstNumber = Int.random(in: 1...99)
+                secondNumber = Int.random(in: 1...99)
+            } while firstNumber % secondNumber != 0
+            
+            let question: String = "\(firstNumber) \(sign) \(secondNumber) = "
+            questionLabel.text = question
+        } else {
+            firstNumber = Int.random(in: 1...99)
+            secondNumber = Int.random(in: 1...99)
+            
+            let question: String = "\(firstNumber) \(sign) \(secondNumber) = "
+            questionLabel.text = question
+        }
     }
     
     private func check(answer: String, for button: UIButton) {
@@ -114,6 +125,10 @@ final class TrainViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 self?.configureQuestion()
                 self?.configureButton()
+            }
+            
+            if button.backgroundColor == .green {
+                countLabel.text = "Count: \(count)"
             }
         }
     }
