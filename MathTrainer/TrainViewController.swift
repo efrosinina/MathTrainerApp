@@ -54,9 +54,9 @@ final class TrainViewController: UIViewController {
     
     //MARK: - Life cycle
     override func viewDidLoad() {
-        addShadowAndColor()
         configureQuestion()
         configureButtons()
+        addShadowAndColor()
     }
     
     //MARK: - IBActions
@@ -72,12 +72,11 @@ final class TrainViewController: UIViewController {
     
     //MARK: - Methods
     private func addShadowAndColor() {
-        let buttonsArray = [leftButtonResult, rightButtonResult]
-        buttonsArray.forEach { button in
-            button?.backgroundColor = .systemGray
-        }
+        let defaultColor: UIColor = .systemGray
+        leftButtonResult.backgroundColor = defaultColor
+        rightButtonResult.backgroundColor = defaultColor
         
-        buttonsArray.forEach { button in
+        [leftButtonResult, rightButtonResult].forEach { button in
             button?.layer.shadowColor = UIColor.darkGray.cgColor
             button?.layer.shadowOffset = CGSize.init(width: 0, height: 2)
             button?.layer.shadowOpacity = 0.4
