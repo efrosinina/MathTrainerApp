@@ -56,7 +56,7 @@ final class TrainViewController: UIViewController {
     override func viewDidLoad() {
         configureQuestion()
         configureButtons()
-        addShadowAndColor()
+        addShadow()
     }
     
     //MARK: - IBActions
@@ -71,11 +71,7 @@ final class TrainViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func addShadowAndColor() {
-        let defaultColor: UIColor = .systemGray
-        leftButtonResult.backgroundColor = defaultColor
-        rightButtonResult.backgroundColor = defaultColor
-        
+    private func addShadow() {
         [leftButtonResult, rightButtonResult].forEach { button in
             button?.layer.shadowColor = UIColor.darkGray.cgColor
             button?.layer.shadowOffset = CGSize.init(width: 0, height: 2)
@@ -85,6 +81,10 @@ final class TrainViewController: UIViewController {
     }
     
     private func configureButtons() {
+        let defaultColor: UIColor = .systemGray
+        leftButtonResult.backgroundColor = defaultColor
+        rightButtonResult.backgroundColor = defaultColor
+        
         let isRightButton = Bool.random()
         var randomAnswer: Int
         repeat {
