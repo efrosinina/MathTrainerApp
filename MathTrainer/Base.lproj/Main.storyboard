@@ -34,7 +34,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ry7-FG-ulV">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="fHN-ZX-nc5"/>
                                             <constraint firstAttribute="width" constant="80" id="pjh-nk-PA4"/>
@@ -76,7 +76,7 @@
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0s-Nq-Pud">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="dF9-nA-hjF"/>
                                             <constraint firstAttribute="height" constant="80" id="ipS-Uo-oR9"/>
@@ -118,7 +118,7 @@
                                 <subviews>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43U-Wu-xlS">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="1EW-2y-GC1"/>
                                             <constraint firstAttribute="height" constant="80" id="i5Q-dX-gSO"/>
@@ -160,7 +160,7 @@
                                 <subviews>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOL-bh-2zF">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="Tuo-X6-gOn"/>
                                             <constraint firstAttribute="height" constant="80" id="jvU-Z5-flB"/>
@@ -216,6 +216,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="divideCountLabel" destination="Dsf-rY-Ddu" id="9Oj-PV-WCt"/>
+                        <outlet property="minusCountLabel" destination="riz-b9-y7f" id="P5U-Io-bxr"/>
+                        <outlet property="multiplyCountLabel" destination="Fdh-j0-swl" id="YpC-qV-vIr"/>
+                        <outlet property="plusCountLabel" destination="eCD-Ze-7QO" id="6zz-Jl-VXl"/>
                         <outletCollection property="buttonsCollection" destination="Ry7-FG-ulV" collectionClass="NSMutableArray" id="3VZ-cG-L4U"/>
                         <outletCollection property="buttonsCollection" destination="n0s-Nq-Pud" collectionClass="NSMutableArray" id="bPS-4Q-wmx"/>
                         <outletCollection property="buttonsCollection" destination="43U-Wu-xlS" collectionClass="NSMutableArray" id="r5U-1b-nZx"/>
@@ -254,7 +258,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82D-nC-A84">
                                 <rect key="frame" x="96.666666666666686" y="535" width="80" height="80"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Kj3-05-sQE"/>
                                     <constraint firstAttribute="width" constant="80" id="XDq-zh-Rri"/>
@@ -271,11 +275,12 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K9Q-uH-HaR"/>
+                                    <action selector="leftActionButton:" destination="BuS-Sf-pmj" eventType="touchUpInside" id="XGt-KS-uPq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyA-Rr-N9X">
                                 <rect key="frame" x="216.66666666666663" y="535" width="80" height="80"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Hva-8n-iu0"/>
                                     <constraint firstAttribute="width" constant="80" id="aHC-ap-4u0"/>
@@ -292,8 +297,15 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="buttonsAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TeJ-4B-vLq"/>
+                                    <action selector="rightActionButton:" destination="BuS-Sf-pmj" eventType="touchUpInside" id="mvR-4k-fAr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count: 0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eX-M7-zBF">
+                                <rect key="frame" x="272.66666666666669" y="141" width="78.333333333333314" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hnu-7U-yhr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -302,14 +314,17 @@
                             <constraint firstItem="CIV-h1-iMc" firstAttribute="leading" secondItem="hnu-7U-yhr" secondAttribute="leading" constant="40" id="5hU-Hy-khk"/>
                             <constraint firstItem="82D-nC-A84" firstAttribute="top" secondItem="pm5-eJ-oFQ" secondAttribute="bottom" constant="120" id="7g3-xl-B88"/>
                             <constraint firstItem="yyA-Rr-N9X" firstAttribute="centerX" secondItem="0Cc-bm-b83" secondAttribute="centerX" constant="60" id="JmS-cX-GJz"/>
+                            <constraint firstItem="3eX-M7-zBF" firstAttribute="top" secondItem="hnu-7U-yhr" secondAttribute="top" constant="141" id="Le9-c9-cAs"/>
                             <constraint firstItem="82D-nC-A84" firstAttribute="centerX" secondItem="0Cc-bm-b83" secondAttribute="centerX" constant="-60" id="k9x-rm-PWZ"/>
                             <constraint firstItem="yyA-Rr-N9X" firstAttribute="centerY" secondItem="82D-nC-A84" secondAttribute="centerY" id="n79-kX-JV0"/>
                             <constraint firstItem="CIV-h1-iMc" firstAttribute="top" secondItem="hnu-7U-yhr" secondAttribute="top" constant="50" id="pYu-3f-9UW"/>
+                            <constraint firstItem="hnu-7U-yhr" firstAttribute="trailing" secondItem="3eX-M7-zBF" secondAttribute="trailing" constant="42" id="qqh-2j-KPt"/>
                             <constraint firstItem="pm5-eJ-oFQ" firstAttribute="centerX" secondItem="0Cc-bm-b83" secondAttribute="centerX" id="qys-kw-dAw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jkc-6g-Zbh"/>
                     <connections>
+                        <outlet property="countLabel" destination="3eX-M7-zBF" id="z05-ef-3U6"/>
                         <outlet property="leftButtonResult" destination="82D-nC-A84" id="NaC-FN-Qeh"/>
                         <outlet property="questionLabel" destination="pm5-eJ-oFQ" id="iXr-em-aJo"/>
                         <outlet property="rightButtonResult" destination="yyA-Rr-N9X" id="nm8-FB-aHK"/>
@@ -318,15 +333,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIx-zT-s27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="mQU-hr-Rgp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="923" y="4"/>
+            <point key="canvasLocation" x="922.90076335877859" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
