@@ -216,10 +216,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="divideCountLabel" destination="Dsf-rY-Ddu" id="Iu6-Jx-w7P"/>
-                        <outlet property="minusCountLabel" destination="riz-b9-y7f" id="CaG-9p-fQx"/>
-                        <outlet property="multiplyCountLabel" destination="Fdh-j0-swl" id="Paz-vp-wAU"/>
-                        <outlet property="plusCountLabel" destination="eCD-Ze-7QO" id="8FS-4I-rcY"/>
+                        <outlet property="divideCountLabel" destination="Dsf-rY-Ddu" id="9Oj-PV-WCt"/>
+                        <outlet property="minusCountLabel" destination="riz-b9-y7f" id="P5U-Io-bxr"/>
+                        <outlet property="multiplyCountLabel" destination="Fdh-j0-swl" id="YpC-qV-vIr"/>
+                        <outlet property="plusCountLabel" destination="eCD-Ze-7QO" id="6zz-Jl-VXl"/>
                         <outletCollection property="buttonsCollection" destination="Ry7-FG-ulV" collectionClass="NSMutableArray" id="3VZ-cG-L4U"/>
                         <outletCollection property="buttonsCollection" destination="n0s-Nq-Pud" collectionClass="NSMutableArray" id="bPS-4Q-wmx"/>
                         <outletCollection property="buttonsCollection" destination="43U-Wu-xlS" collectionClass="NSMutableArray" id="r5U-1b-nZx"/>

@@ -21,14 +21,12 @@ class ViewController: UIViewController {
     
     //MARK: - Properties
     private var selectedType: MathTypes = .add
-    //private var trainVC = TrainViewController()
     
     //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureButtons()
-       // configureCountLabel()
     }
     
     //MARK: - Actions
@@ -37,7 +35,20 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goToNextView", sender: sender)
     }
     
-    @IBAction func unwindAction(unwindSegue: UIStoryboardSegue) { }
+    @IBAction func unwindAction(unwindSegue: UIStoryboardSegue) {
+        if let trainViewController = unwindSegue.source as? TrainViewController {
+            switch selectedType {
+            case .add:
+                plusCountLabel.text = String(trainViewController.correctAnswerCount)
+            case .subtract:
+                minusCountLabel.text = String(trainViewController.correctAnswerCount)
+            case .multiply:
+                multiplyCountLabel.text = String(trainViewController.correctAnswerCount)
+            case .divide:
+                divideCountLabel.text = String(trainViewController.correctAnswerCount)
+            }
+        }
+    }
     
     //MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,9 +67,5 @@ class ViewController: UIViewController {
             button.layer.shadowRadius = 3
         }
     }
-    
-    //private func  configureCountLabel() {
-    //    plusCountLabel.text = "\(trainVC.count)"
-   // }
 }
 

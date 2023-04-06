@@ -34,9 +34,9 @@ final class TrainViewController: UIViewController {
     private var firstNumber = 0
     private var secondNumber = 0
     private var sign: String = ""
-    var count: Int = 0 {
+    var correctAnswerCount: Int = 0 {
         didSet {
-            print("Count: \(count)")
+            print("Count: \(correctAnswerCount)")
         }
     }
     private var answer: Int {
@@ -55,7 +55,8 @@ final class TrainViewController: UIViewController {
     //MARK: - Life cycle
     override func viewDidLoad() {
         configureQuestion()
-        configureButton()
+        configureButtons()
+        addShadowAndColor()
     }
     
     //MARK: - IBActions
@@ -70,7 +71,7 @@ final class TrainViewController: UIViewController {
     }
     
     //MARK: - Methods
-    private func configureButton() {
+    private func addShadowAndColor() {
         let buttonsArray = [leftButtonResult, rightButtonResult]
         buttonsArray.forEach { button in
             button?.backgroundColor = .systemGray
@@ -82,7 +83,9 @@ final class TrainViewController: UIViewController {
             button?.layer.shadowOpacity = 0.4
             button?.layer.shadowRadius = 3
         }
-        
+    }
+    
+    private func configureButtons() {
         let isRightButton = Bool.random()
         var randomAnswer: Int
         repeat {
@@ -94,7 +97,6 @@ final class TrainViewController: UIViewController {
     }
     
     private func configureQuestion() {
-        
         if type == .divide {
             repeat {
                 firstNumber = Int.random(in: 1...99)
@@ -120,15 +122,15 @@ final class TrainViewController: UIViewController {
         if isRightAnswer {
             let isSecondAttempt = rightButtonResult.backgroundColor == .red ||
             leftButtonResult.backgroundColor == .red
-            count += isSecondAttempt ? 0 : 1
+            correctAnswerCount += isSecondAttempt ? 0 : 1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 self?.configureQuestion()
-                self?.configureButton()
+                self?.configureButtons()
             }
             
             if button.backgroundColor == .green {
-                countLabel.text = "Count: \(count)"
+                countLabel.text = "Count: \(correctAnswerCount)"
             }
         }
     }
