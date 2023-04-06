@@ -54,9 +54,9 @@ final class TrainViewController: UIViewController {
     
     //MARK: - Life cycle
     override func viewDidLoad() {
+        addShadowAndColor()
         configureQuestion()
         configureButtons()
-        addShadowAndColor()
     }
     
     //MARK: - IBActions
