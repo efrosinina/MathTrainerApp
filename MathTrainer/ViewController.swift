@@ -7,8 +7,21 @@
 
 import UIKit
 
-enum MathTypes: Int {
+enum MathTypes: Int, CaseIterable {
     case add, subtract, multiply, divide
+    
+    var key: String {
+        switch self {
+        case .add:
+            return "addCount"
+        case .subtract:
+            return "subtractCount"
+        case .multiply:
+            return "multiplyCount"
+        case .divide:
+            return "divideCount"
+        }
+    }
 }
 
 class ViewController: UIViewController {
@@ -27,6 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         configureButtons()
+        setCountLabels()
     }
     
     //MARK: - Actions
@@ -34,20 +48,19 @@ class ViewController: UIViewController {
         selectedType = MathTypes(rawValue: sender.tag) ?? .add
         performSegue(withIdentifier: "goToNextView", sender: sender)
     }
+    @IBAction func clearButtonAction(_ sender: UIButton) {
+        MathTypes.allCases.forEach { type in
+            let key = type.key
+            UserDefaults.standard.removeObject(forKey: key)
+            plusCountLabel.text = "-"
+            minusCountLabel.text = "-"
+            multiplyCountLabel.text = "-"
+            divideCountLabel.text = "-"
+        }
+    }
     
     @IBAction func unwindAction(unwindSegue: UIStoryboardSegue) {
-        if let trainViewController = unwindSegue.source as? TrainViewController {
-            switch selectedType {
-            case .add:
-                plusCountLabel.text = String(trainViewController.correctAnswerCount)
-            case .subtract:
-                minusCountLabel.text = String(trainViewController.correctAnswerCount)
-            case .multiply:
-                multiplyCountLabel.text = String(trainViewController.correctAnswerCount)
-            case .divide:
-                divideCountLabel.text = String(trainViewController.correctAnswerCount)
-            }
-        }
+            setCountLabels()
     }
     
     //MARK: - Methods
@@ -55,6 +68,25 @@ class ViewController: UIViewController {
         // destination - next viewController
         if let viewController = segue.destination as? TrainViewController {
             viewController.type = selectedType
+        }
+    }
+    
+    private func setCountLabels() {
+        MathTypes.allCases.forEach { type in
+            let key = type.key // Got key
+            guard let count = UserDefaults.standard.object(forKey: key) as? Int else { return } // Received object from key
+            let stringValue = String(count)
+            
+            switch type {
+            case .add:
+                plusCountLabel.text = stringValue
+            case .subtract:
+                minusCountLabel.text = stringValue
+            case .multiply:
+                multiplyCountLabel.text = stringValue
+            case .divide:
+                divideCountLabel.text = stringValue
+            }
         }
     }
     

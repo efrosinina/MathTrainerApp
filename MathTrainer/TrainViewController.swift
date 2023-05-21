@@ -37,6 +37,8 @@ final class TrainViewController: UIViewController {
     var correctAnswerCount: Int = 0 {
         didSet {
             print("Count: \(correctAnswerCount)")
+            //Saving
+            UserDefaults.standard.set(correctAnswerCount, forKey: type.key)
         }
     }
     private var answer: Int {
@@ -57,6 +59,10 @@ final class TrainViewController: UIViewController {
         configureQuestion()
         configureButtons()
         addShadow()
+        
+        if let count = UserDefaults.standard.object(forKey: type.key) as? Int {
+            correctAnswerCount = count
+        }
     }
     
     //MARK: - IBActions
@@ -135,3 +141,7 @@ final class TrainViewController: UIViewController {
     }
 }
 
+//Create our own storage
+extension UserDefaults {
+    static let container = UserDefaults(suiteName: "container")
+}
