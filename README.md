@@ -1,7 +1,6 @@
 # MathTrainerApp
 
 <h1 align="center">Hello, I'm <a href="https://github.com/efrosinina" target="_blank">Elizaveta</a> 
-<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h3 align="center">IOS-developer, computer science student.</h3>
 
 This application is designed to train mathematical computationsand. There is an opportunity to choose what exactly you need to train.
